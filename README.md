@@ -118,13 +118,13 @@ Gradient Boosting, and Random Forest. Since the Extreme Gradient Boosting perfor
 Stochastic, Extreme will be used instead. Moving forward, Random Forest and Extreme Gradient
 Boosting will be tested against each other.
 
-Algorithm                     ROC     Sensitivity Specificity ‘No’ Precision ‘Yes’ Precision
-Stochastic Gradient Boosting  0.8586  0.7702      0.7739        0.7731        0.7709
-Extreme Gradient Boosting     0.9594  0.9103      0.8829        0.8852        0.9074
-Random Forest                 0.9690  0.9238      0.8985        0.9006        0.9220
-Support Vector Machines       0.7295  0.6421      0.6959        0.7243        0.7121
-Boosted Logistic Regression   0.6434  0.6472      0.5966        0.6160        0.6287
-Linear Discriminant Analysis  0.7186  0.6322      0.6842        0.6667        0.6502
+Algorithm, ROC:                   
+Stochastic Gradient Boosting,  0.8586
+Extreme Gradient Boosting,     0.9594
+Random Forest,               0.9690
+Support Vector Machines,       0.7295
+Boosted Logistic Regression,   0.6434
+Linear Discriminant Analysis,  0.7186
 
 When predictors in a model are correlated with each other, it can lead to a weaker model. The
 precision of the predictions may decrease as more predictors are added, and the contribution of any
@@ -157,11 +157,11 @@ The following is a comparison among the two contesting models and their counterp
 been trained on data without highly correlated predictors. The latter models are stronger, so moving
 forward the data lacking highly correlated predictors will be used for training.
 
-Model                                 ROC     Sensitivity Specificity ‘No’ Precision ‘Yes’ Precision
-Random Forest                         0.9690  0.9238      0.8985        0.9006        0.9220
-Random Forest (No Corr.)              0.9721  0.9321      0.9016        0.9049        0.9299
-Extreme Gradient Boosting             0.9594  0.9103      0.8829        0.8852        0.9074
-Extreme Gradient Boosting (No Corr.)  0.9668  0.9247      0.8956        0.8988        0.9218
+Model, ROC:
+Random Forest,                         0.9690
+Random Forest (No Corr.),              0.9721
+Extreme Gradient Boosting,             0.9594
+Extreme Gradient Boosting (No Corr.),  0.9668
 
 The two models considered for the final model are the Random Forest and Extreme Gradient
 Boosting, both trained on a random subset of 20,000 observations, with 50% yes and 50% no responses,
@@ -170,9 +170,9 @@ and no highly correlated predictors.
 The following table is a comparison between the summary metrics of the models. The final
 model chosen is the Random Forest model because it has a higher ROC and is an overall stronger model.
 
-Model                     ROC     Sensitivity Specificity ‘No’ Precision ‘Yes’ Precision
-Extreme Gradient Boosting 0.9668  0.9247      0.8956       0.8988         0.9218
-Random Forest             0.9721  0.9321      0.9016       0.9049         0.9299
+Model, ROC:
+Extreme Gradient Boosting, 0.9668
+Random Forest,             0.9721
 
 Real-time season ticket member data is aggregated in an Azure table. All
 data in this table is current and references the most recent specified time window. The script which
