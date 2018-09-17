@@ -51,29 +51,29 @@ The first step in building the model was to choose the algorithms to be tested t
 highest-performing for this dataset. The following is a technical description of each of six model
 algorithms tested in the selection process.
 
-Stochastic Gradient Boosting 
+Stochastic Gradient Boosting:  
  Produces a prediction model in the form of an ensemble of weak decision trees.
  Repetitively uses the patterns in residuals to strengthen a model with weak predictions until the pattern can no longer be modeled.
 
-Extreme Gradient Boosting 
+Extreme Gradient Boosting: 
  An implementation of the gradient boosting concept.
  Uses a more regularized model formulation to control over-fitting.
  Pushes the limits of the computational resources for boosted tree algorithms.
 
-Random Forest 
+Random Forest: 
  Constructs multiple decision trees (tree-like graph of decisions and their possible consequences) and
 outputs the class that is the mode of the classes of the individual trees.
 
 Support Vector Machines w/ Radial
-Basis Function Kernel
+Basis Function Kernel: 
  Represents the observations as points in space, mapped so that the observations of the 2 classes are divided by a clear gap that is as wide as possible.
  New observations are mapped into that same space and predicted to belong to a class based on which side of the gap they fall.
 
-Boosted Logistic Regression
+Boosted Logistic Regression: 
  Uses the log-odds of the probability of an event.
  Simply models probability of output in terms of input.
 
-Linear Discriminant Analysis 
+Linear Discriminant Analysis:  
  Uses Bayes Theorem to make predictions by estimating the probability that a new set of inputs belongs to a class.
 
 The highest performing model was selected based on a variety of summary metrics calculated
@@ -101,17 +101,15 @@ on the full dataset and one trained on the sample dataset. The 0.0308 reduction 
 since the model trained on the subset of data ran in 30 minutes as opposed to 3 hours for the model
 trained on the full dataset.
 
-Dataset Size ROC   Sensitivity Specificity ‘No’ Precision ‘Yes’ Precision
-176,755     0.8796 0.4959       0.9494      0.8148          0.8064
-20,000      0.8488 0.4761       0.9361      0.7684          0.8012
+Dataset Size: 176,755, ROC: 0.8796 
+Dataset Size: 20,000, ROC:  0.8488
 
 Another issue encountered in these initial model building stages was the imbalance of classes in the dataset. Approximately 30% of the dataset consists of accounts who did not renew for the 2018-19 season, while 70% consists of those who did renew. This inconsistency means that when the model is learning, it becomes better at predicting ‘Yes’ responses than ‘No’ responses. As seen in the table above, both Stochastic Gradient Boosting models (regardless of dataset size) could only predict true ‘No’ responses about 50% of the time. To correct this, the random subset of 20,000 observations was specified to consist of 10,000 ‘No’ responses and 10,000 ‘Yes’ responses. This redistributes the model’s predictive strength to both classes. 
 
 The following table is a comparison of two different Stochastic Gradient Boosting Models, one trained on the regular random subset of 20,000 observations and one trained on the random subset of 20,000 observations of which 50% are yes and 50% are no. The model trained on the 50/50 subset has more evenly distributed sensitivity and specificity scores, along with a higher ROC. Moving forward, the six algorithms were trained on their own respective 50/50 subsets of the dataset.
 
-Subset Type ROC     Sensitivity Specificity ‘No’ Precision ‘Yes’ Precision
-Regular     0.8488  0.4761      0.9361       0.7684         0.8012
-50/50       0.8586  0.7702      0.7739       0.7731         0.7709
+Subset Type: Regular, ROC: 0.8488
+Subset Type: 50/50, ROC: 0.8586
 
 The following table shows a comparison between all six of the algorithms and the yielded
 summary metrics from their training. In terms of parameter tuning, the optimal values were found using
