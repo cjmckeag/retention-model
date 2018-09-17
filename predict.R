@@ -7,7 +7,7 @@ library(Hmisc) # impute
 sqlServer <- "ssbkingsdb01.database.secure.windows.net"  #Enter Azure SQL Server
 sqlDatabase <- "kingsdb"                #Enter Database Name
 sqlUser <- "kings_cmckeag"             #Enter the SQL User ID
-sqlPassword <- "P9$T&8fx6^ZN#Jn"        #Enter the User Password
+sqlPassword <- "************"        #Enter the User Password
 sqlDriver <- "SQL Server"        #Leave this Drive Entry
 connectionStringSQL <- paste0(
   "Driver=", sqlDriver, 
