@@ -179,8 +179,7 @@ data in this table is current and references the most recent specified time wind
 created this table was written in a similar way to the scripts which created the views previously
 described.
 
-The current data table is pulled into R, where the data is then cleaned and prepared. The
-random forest model is loaded into the workspace and used to make predictions on the data. The
+The current data table is created with the CurrentData.sql code and then pulled into R via predict.R, where the data is then cleaned and prepared. The random forest model is loaded into the workspace and used to make predictions on the data. The
 predictions, an account score of 1-5 calculated by evenly distributed quantiles, the current date, and all
 of the data are then outputted back to the SQL server in a table. 
 Whenever the prediction script in R is ran on new data, it and its predictions are outputted to this table.
